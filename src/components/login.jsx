@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Eye, EyeOff, Mail, Lock, ArrowRight } from "lucide-react";
 
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState("");
@@ -18,64 +19,68 @@ const Login = ({ onLogin }) => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center py-12 px-4">
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100 flex items-center justify-center py-12 px-4">
             <div className="max-w-md w-full">
-                {/* Simple Header */}
+                {/* Header */}
                 <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold text-gray-900">Welcome Back</h2>
-                    <p className="text-gray-600 mt-2">Sign in to your account to continue shopping</p>
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-500 rounded-full mb-4">
+                        <Lock className="w-8 h-8 text-white" />
+                    </div>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
+                    <p className="text-gray-600">Sign in to your StepStyle account</p>
                 </div>
 
-                {/* Login Form */}
-                <div className="bg-white rounded-2xl shadow-xl p-8">
+                {/* Login Card */}
+                <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
                     <form onSubmit={handleLogin} className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        {/* Email Field */}
+                        <div className="space-y-2">
+                            <label className="block text-sm font-semibold text-gray-700">Email Address</label>
                             <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <Mail className="h-5 w-5 text-gray-400" />
+                                </div>
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-300"
-                                    placeholder="Enter your email"
+                                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
+                                    placeholder="Enter your email address"
                                 />
-                                <svg className="absolute right-3 top-3.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                                </svg>
                             </div>
                         </div>
 
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        {/* Password Field */}
+                        <div className="space-y-2">
+                            <label className="block text-sm font-semibold text-gray-700">Password</label>
                             <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <Lock className="h-5 w-5 text-gray-400" />
+                                </div>
                                 <input
                                     type={showPassword ? "text" : "password"}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-300"
+                                    className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-gray-50 focus:bg-white"
                                     placeholder="Enter your password"
                                 />
                                 <button
                                     type="button"
                                     onClick={() => setShowPassword(!showPassword)}
-                                    className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600 cursor-pointer"
+                                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 cursor-pointer"
                                 >
                                     {showPassword ? (
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
-                                        </svg>
+                                        <EyeOff className="h-5 w-5" />
                                     ) : (
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
+                                        <Eye className="h-5 w-5" />
                                     )}
                                 </button>
                             </div>
                         </div>
 
+                        {/* Remember Me & Forgot Password */}
                         <div className="flex items-center justify-between">
                             <div className="flex items-center">
                                 <input
@@ -94,18 +99,49 @@ const Login = ({ onLogin }) => {
                             </NavLink>
                         </div>
 
+                        {/* Login Button */}
                         <button 
                             type="submit" 
-                            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-semibold transition-colors duration-300 transform hover:scale-105 cursor-pointer"
+                            className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg flex items-center justify-center space-x-2 cursor-pointer"
                         >
-                            Sign In
+                            <span>Sign In</span>
+                            <ArrowRight className="w-5 h-5" />
                         </button>
                     </form>
 
-                    <p className="mt-8 text-center text-sm text-gray-600">
-                        Don't have an account?{' '}
-                        <NavLink to="/signup" className="text-blue-500 hover:text-blue-600 font-medium cursor-pointer">
-                            Sign up for free
+                    {/* Divider */}
+                    <div className="mt-8">
+                        <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                                <div className="w-full border-t border-gray-300" />
+                            </div>
+                            <div className="relative flex justify-center text-sm">
+                                <span className="px-4 bg-white text-gray-500 font-medium">New to StepStyle?</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Sign Up Link */}
+                    <div className="mt-6">
+                        <NavLink 
+                            to="/signup" 
+                            className="w-full border-2 border-blue-500 text-blue-500 hover:bg-blue-50 py-3 rounded-xl font-semibold transition-all duration-300 cursor-pointer flex items-center justify-center space-x-2"
+                        >
+                            <span>Create New Account</span>
+                        </NavLink>
+                    </div>
+                </div>
+
+                {/* Footer */}
+                <div className="text-center mt-8">
+                    <p className="text-sm text-gray-500">
+                        By signing in, you agree to our{' '}
+                        <NavLink to="/terms" className="text-blue-500 hover:text-blue-600 cursor-pointer">
+                            Terms of Service
+                        </NavLink>
+                        {' '}and{' '}
+                        <NavLink to="/privacy" className="text-blue-500 hover:text-blue-600 cursor-pointer">
+                            Privacy Policy
                         </NavLink>
                     </p>
                 </div>

@@ -24,8 +24,7 @@ const Navigation = () => {
 
                     {/* Desktop Auth Buttons */}
                     <div className="hidden md:flex items-center space-x-4">
-                        <NavLink to="/login" className="px-4 py-2 text-blue-500 border border-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition-colors duration-300 cursor-pointer">Login</NavLink>
-                        <NavLink to="/signup" className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 cursor-pointer">Sign Up</NavLink>
+                        <NavLink to="/login" className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 cursor-pointer">Login</NavLink>
                     </div>
 
                     {/* Mobile menu button */}
@@ -49,8 +48,7 @@ const Navigation = () => {
                             <li><NavLink to="/contact" className="block text-gray-700 hover:text-blue-500 font-medium cursor-pointer">Contact</NavLink></li>
                         </ul>
                         <div className="flex space-x-4 mt-4">
-                            <NavLink to="/login" className="px-4 py-2 text-blue-500 border border-blue-500 rounded-lg cursor-pointer">Login</NavLink>
-                            <NavLink to="/signup" className="px-4 py-2 bg-blue-500 text-white rounded-lg cursor-pointer">Sign Up</NavLink>
+                            <NavLink to="/login" className="px-6 py-2 bg-blue-500 text-white rounded-lg cursor-pointer w-full text-center">Login</NavLink>
                         </div>
                     </div>
                 )}
